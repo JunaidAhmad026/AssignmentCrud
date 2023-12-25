@@ -1,0 +1,53 @@
+# Dependency directories
+node_modules/
+package-lock.json
+yarn.lock
+
+# Build output
+dist/
+*.tsbuildinfo
+
+# Compiled JavaScript files (if using TypeScript)
+*.js
+
+# Environment variables
+.env
+.env.*
+
+# NestJS specific files
+nest-*.json
+
+# Logs
+logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# OS
+.DS_Store
+
+# Editor configuration
+.editorconfig
+
+# Tests
+/coverage
+/.nyc_output
+
+# IDEs and editors
+/.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+*.swp
+*.swo
+
+# IDE - VSCode
+.vscode/*
+!.vscode/tasks.json
+!.vscode/extensions.json
