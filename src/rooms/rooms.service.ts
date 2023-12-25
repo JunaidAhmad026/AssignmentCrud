@@ -17,15 +17,15 @@ export class RoomsService {
     return this.roomsInfo.find();
   }
 
-  findOne(id: number) {
-    return this.roomsInfo.findOne({roomNumber : id});
+  findOne(id: string) {
+    return this.roomsInfo.findOne({_id : id});
   }
 
-  async update(id: number, updateRoomDto: UpdateRoomDto) {
-    return this.roomsInfo.findOneAndUpdate({roomNumber : id}, updateRoomDto, {new: true});
+  async update(id: string, updateRoomDto: UpdateRoomDto) {
+    return this.roomsInfo.findOneAndUpdate({_id : id}, updateRoomDto, {new: true});
   }
 
-  remove(id: number) {
-    return this.roomsInfo.deleteOne({roomNumber : id});
+  remove(id: string) {
+    return this.roomsInfo.deleteOne({_id : id});
   }
 }
