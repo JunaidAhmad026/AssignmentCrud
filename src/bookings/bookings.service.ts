@@ -89,40 +89,52 @@ export class BookingsService {
   }
 
   async findOne(id: string) {
-    console.log(id)
-    const x = await this.bookingsInfo.aggregate(
-  [
-    {
-      $match: {
-        _id: new Types.ObjectId(id)
-      }
-    },
-    {
-      $lookup: {
-        from: 'rooms',
-        localField: 'roomId',
-        foreignField: '_id',
-        as: 'room'
-      }
-    },
-    { $unwind: { path: '$room' } }
-  ],
-);
-    return x
-  // return this.bookingsInfo.findById(id).populate("roomId")
+    try {
+          const booking = await this.bookingsInfo.aggregate(
+          [
+            {
+              $match: {
+                _id: new Types.ObjectId(id)
+              }
+            },
+            {
+              $lookup: {
+                from: 'rooms',
+                localField: 'roomId',
+                foreignField: '_id',
+                as: 'room'
+              }
+            },
+            { $unwind: { path: '$room' } },
+            {
+              $lookup: {
+                from: 'customers',
+                localField: 'customerId',
+                foreignField: '_id',
+                as: 'customer'
+              }
+            },
+            { $unwind: { path: '$customer' } }
+          ],
+        );
+      return booking  
+    } catch (error) {
+      throw new BadRequestException(error);
+    }
+    
   }
 
   async update(id: string, updateBookingDto: UpdateBookingDto) {
     const booking = await this.bookingsInfo.findById(id);
     if (!booking) throw new BadRequestException("No such booking exists");
-    if (updateBookingDto.checkInDate || updateBookingDto.checkOutDate) {
+    if (updateBookingDto.checkInDate || updateBookingDto.checkOutDate || updateBookingDto.roomId) {
       if (!updateBookingDto.checkInDate) updateBookingDto.checkInDate = booking?.checkInDate;
       if (!updateBookingDto.checkOutDate) updateBookingDto.checkOutDate = booking?.checkOutDate;
       if (!updateBookingDto.roomId) updateBookingDto.roomId = booking?.roomId.toString();
       await this.checkAvailabilityOtherThanCurrentBooking(updateBookingDto, id);
       updateBookingDto.nights = await this.daysBetweenDates(updateBookingDto.checkInDate, updateBookingDto.checkOutDate); 
     }
-    return this.bookingsInfo.findOneAndUpdate({_id : id}, updateBookingDto);
+    return this.bookingsInfo.findOneAndUpdate({_id : id}, updateBookingDto, {new: true});
   }
 
   remove(id: string) {

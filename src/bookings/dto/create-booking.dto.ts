@@ -5,14 +5,10 @@ export class CreateBookingDto {
     @ApiProperty()
     @IsString()
     roomId: string;
-        
+
     @ApiProperty()
     @IsString()
-    userName: string;
-    
-    @ApiProperty()
-    @IsString()
-    userIdCard: string;
+    customerId: string;
     
     @ApiProperty()
     @IsDate()

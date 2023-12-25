@@ -6,16 +6,6 @@ export class UpdateBookingDto {
     @IsString()
     @IsOptional()
     roomId: string;
-        
-    @ApiProperty()
-    @IsString()
-    @IsOptional()
-    userName: string;
-    
-    @ApiProperty()
-    @IsString()
-    @IsOptional()
-    userIdCard: string;
     
     @ApiProperty()
     @IsDate()

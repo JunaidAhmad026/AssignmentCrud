@@ -5,17 +5,14 @@ import { Document, SchemaTypes, Types } from 'mongoose';
 export class Bookings extends Document {
   @Prop({ type: [SchemaTypes.ObjectId], ref: 'Rooms' })
   roomId: Types.ObjectId;
-    
-  @Prop()
-  userName: string;
-  
-  @Prop()
-  userIdCard: string;
-  
-  @Prop({ default: new Date() })
+
+  @Prop({ type: [SchemaTypes.ObjectId], ref: 'Customers' })
+  customerId: Types.ObjectId;
+   
+  @Prop({ default: new Date(),set: stripTime })
   checkInDate: Date;
   
-  @Prop({ default: new Date() })
+  @Prop({ default: new Date(), set: stripTime})
   checkOutDate: Date;
     
   @Prop()
@@ -24,4 +21,9 @@ export class Bookings extends Document {
   @Prop()
   nights: number;
 }
+
+function stripTime(date:Date) {
+  return new Date(date.toISOString().split('T')[0]);
+}
+
 export const bookingsSchema = SchemaFactory.createForClass(Bookings);

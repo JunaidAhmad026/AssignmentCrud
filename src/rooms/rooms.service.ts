@@ -22,7 +22,7 @@ export class RoomsService {
   }
 
   async update(id: number, updateRoomDto: UpdateRoomDto) {
-    return this.roomsInfo.findOneAndUpdate({roomNumber : id}, updateRoomDto);
+    return this.roomsInfo.findOneAndUpdate({roomNumber : id}, updateRoomDto, {new: true});
   }
 
   remove(id: number) {

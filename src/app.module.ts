@@ -4,6 +4,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { validate } from './env.validation';
 import { RoomsModule } from './rooms/rooms.module';
 import { BookingsModule } from './bookings/bookings.module';
+import { CustomersModule } from './customers/customers.module';
 ;
 
 @Module({
@@ -18,6 +19,7 @@ import { BookingsModule } from './bookings/bookings.module';
     }),
     RoomsModule,
     BookingsModule,
+    CustomersModule,
   ],
   controllers: [],
   providers: [],
