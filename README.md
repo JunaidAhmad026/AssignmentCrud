@@ -1,8 +1,8 @@
 <p align="center">
-  <a href="https://rubios.com" target="blank"><img src="https://delmarhighlandstowncenter.com/wp-content/uploads/2020/09/DMHTC_Listing_Gallery_Rubioslogo.jpg" width="200" alt="Rubio's Logo" /></a>
+  <a href="" target="blank"><img src="https://delmarhighlandstowncenter.com/wp-content/uploads/2020/09/" width="200" alt="Rubio's Logo" /></a>
 </p>
 
-  <p align="center"><a href="https://rubios.com" target="_blank">Rubio's</a></p>
+  <p align="center"><" target="_blank"></a></p>
     <p align="center">
 
 </p>
@@ -47,5 +47,5 @@ yarn run test:cov
 
 ## Stay in touch
 
-- Author - [Muhammad Khaliq ur Rehman](https://citrusbits.com)
-- Website - [https://rubios.com](https://rubios.com/)
+- Author - [Junaid Ahmad]()
+- Website - []()
