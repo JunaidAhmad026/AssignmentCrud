@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="" target="blank"><img src="https://delmarhighlandstowncenter.com/wp-content/uploads/2020/09/" width="200" alt="Rubio's Logo" /></a>
+  <a href="" target="blank"><img src="https://delmarhighlandstowncenter.com/wp-content/uploads/2020/09/" width="200" alt="" /></a>
 </p>
 
   <p align="center"><" target="_blank"></a></p>
